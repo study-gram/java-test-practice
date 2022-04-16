@@ -2,6 +2,9 @@ package kr.springboot.study;
 
 import org.junit.jupiter.api.*;
 
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -13,9 +16,16 @@ public class StudyTest {
 
     @Test
     void create_hello_HAHAHHA() {
-        Study study = new Study();
+        Study study = new Study(-10);
         assertNotNull(study);
-        System.out.println("create");
+        assertAll(
+                () -> assertEquals(StudyStatus.STARTED, study.getStatus(), () -> "바보"),
+                () -> assertTrue(study.getLimit() > 0, "바보녀석")
+        );
+//        assertEquals(StudyStatus.DRAFT, study.getStatus(), () -> "바보");
+//        assertTrue(study.getLimit() > 0, "바보녀석");
+//        assertThrows()
+//        assertTimeout();
     }
 
     @Test
