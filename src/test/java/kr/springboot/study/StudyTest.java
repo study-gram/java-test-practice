@@ -4,16 +4,22 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class StudyTest {
 
+    /**
+     * 테스트 메서드 작성시 이름이 길때 _ 를 써서 이름을 짓자
+     */
+
     @Test
-    void create() {
+    void create_hello_HAHAHHA() {
         Study study = new Study();
         assertNotNull(study);
         System.out.println("create");
     }
 
     @Test
+    @DisplayName("만들기")
     @Disabled // disabled
     void create1() {
         System.out.println("create1");
